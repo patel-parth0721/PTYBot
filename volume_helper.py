@@ -35,3 +35,4 @@ def total_volume_asks_usd(exchange, sym):
     for ask in asks:
         total += ask[0]
     return total
+
