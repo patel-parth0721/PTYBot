@@ -1,0 +1,16 @@
+{
+  "ask_exchanges":
+          [
+            {
+              "name": "bnb",
+              "pairs": ["BAT/BNB", "BAT/BTC", "BAT/ETH", "BAT/PAX", "BAT/TUSD", "BAT/USDC", "BAT/USDT"]
+            }
+          ],
+  "bid_exchanges":
+          [
+            {
+              "name": "cbp",
+              "pairs": ["BAT/ETH", "BAT/USDC"]
+            }
+          ]
+}
