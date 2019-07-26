@@ -1,13 +1,16 @@
 import ccxt
 
 
-def total_volume_bids_btc(exchange, sym):
-    total = 0
-    bids = exchange.fetch_order_book(sym)['bids']
-    print(bids)
-    for bid in bids:
-        total += bid[1]
-    return total
+def total_volume(exchange, sym, vol_param):
+    totalBTC = 0
+    totalUSD = 0
+    sep_pairs = sym.split('/')
+
+    vol = exchange.fetch_order_book(sym)[vol_param]
+    for v in vol:
+        totalUSD += v[0] * v[1]
+        totalBTC += v[1]
+    return {sep_pairs[1]: totalUSD, sep_pairs[0]: totalBTC}
 
 
 def total_volume_bids_usd(exchange, sym):
@@ -36,3 +39,8 @@ def total_volume_asks_usd(exchange, sym):
         total += ask[0]
     return total
 
+cb = ccxt.coinbasepro()
+sym = 'BTC/USD'
+param = 'asks'
+
+print(total_volume(cb, sym, param))
