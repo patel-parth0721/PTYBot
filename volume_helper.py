@@ -36,8 +36,3 @@ def total_volume_asks_usd(exchange, sym):
         total += ask[0]
     return total
 
-
-cb = ccxt.coinbasepro()
-sym = 'BTC/USD'
-print(total_volume_bids_usd(cb, sym))
-
